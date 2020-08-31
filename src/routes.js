@@ -6,10 +6,14 @@ import Menu from './components/Menu/Index';
 
 function Routes() {
     return (
-        <BrowserRouter>
+        <BrowserRouter className>
             <Menu/>
-            <Route path="/" exact component={Home} />
-            <Route path="/servicos" exact component={Services} />
+            <div className="center">
+                <div className="container">
+                    <Route path="/" exact component={Home} />
+                    <Route path="/servicos" exact component={Services} />
+                </div>
+            </div>
         </BrowserRouter>
     )
 }
