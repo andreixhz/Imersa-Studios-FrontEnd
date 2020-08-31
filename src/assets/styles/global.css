@@ -28,7 +28,9 @@ body,
 input,
 textarea,
 button {
-    font: 500 1.6rem Poppins;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
 }
 
 .container {
