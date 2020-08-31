@@ -1,0 +1,16 @@
+.PageTitle{
+    margin-top: 50px;
+}
+
+.PageTitle div{
+    flex-direction: column;
+}
+
+.PageTitle h1{
+    font-size: 6.6rem;
+    margin-bottom: 20px;
+}
+
+.PageTitle p{
+    font-size: 1.6rem;
+}
