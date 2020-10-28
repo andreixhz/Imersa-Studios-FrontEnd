@@ -66,7 +66,7 @@ export default {
                 image: require("../images/services/im1.png")
             },        
             {
-                title:"Visualizaçãoes 3D",
+                title:"visualizações 3D",
                 image: require("../images/services/im1.png")
             },
             {
