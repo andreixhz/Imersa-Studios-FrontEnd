@@ -49,3 +49,20 @@
     text-align: start;
     max-width: 500px;
 }
+
+.section_itens{
+    display: flex;
+    justify-content: space-between;
+}
+
+.img_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.img_section p{
+    font-size: 1.9rem;
+    margin-bottom: 15px;
+    margin-top: 0;
+
+}

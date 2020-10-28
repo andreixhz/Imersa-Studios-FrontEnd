@@ -1,43 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './style.css';
 import PageTitle from '../../components/PageTitle';
 
-import { ButtonBase } from '@material-ui/core'
+import { ButtonBase } from '@material-ui/core';
 
-import ShieldIcon from '../../assets/images/icons/Shield.svg'
-import Pen from '../../assets/images/icons/Pen.svg'
-import Www from '../../assets/images/icons/Www.svg'
-import Model from '../../assets/images/icons/3D.svg'
+import sections from '../../assets/data/section.js';
 
-function Section({title, description, img}){
+function Section({section}){
     return(
         <div className="section">
-            <h1>{title}</h1>
-            <p>{description}</p>
-            <div>
-                
+            <h1>{section.title}</h1>
+            <p>{section.description}</p>
+            <div className="section_itens container">
+                <ImageSection imgs={section.items}/>
             </div>
         </div>
     )
 }
 
-function ImageSection(imgs){
-
-}
-
-function Button({image, name}){
+function ImageSection({imgs}){
     return(
-        <ButtonBase className="card_button" style={{padding:"10px"}}>
-            <div>
-                <img src={image} alt=""/>
+        imgs.map((item, index) => (
+            <div className="img_section" key={index} >
+                <p>{item.title}</p>
+                <img width="305px" height="305px" src={item.image} alt=""/>
             </div>
-            <p>{name}</p>
-        </ButtonBase>
+            )
+        )   
     )
 }
 
+function Button({section, setSection}){
+    
+    return(
+        <ButtonBase onClick={() => setSection(section)} className="card_button" style={{padding:"10px"}}>
+            <div>
+                <img src={section.icon} alt=""/>
+            </div>
+            <p>{section.title}</p>
+        </ButtonBase>
+    ) 
+}
+
 function Services() {
+
+    const [section, setSection] = useState(sections.marca);
+
     return (
         <div>
             <PageTitle 
@@ -47,15 +56,16 @@ function Services() {
             <div className="services center">
                 <p>Escolha um para mais informações</p>
                 <div className="buttons_group">
-                    <Button image={ShieldIcon} name="Marca"/>
-                    <Button image={Www} name="Sistemas"/>
-                    <Button image={Pen} name="Ilustrações"/>
-                    <Button image={Model} name="3D"/>
+                    <Button section={sections.marca} setSection={setSection}/>
+                    <Button section={sections.sistemas} setSection={setSection}/>
+                    <Button section={sections.ilustrations} setSection={setSection}/>
+                    <Button section={sections.model} setSection={setSection}/>
                 </div>
-                <Section title="Marca" description="Nossos design dedicados e qualificados, irão criar o melhor para você e o seu negocio."/>
+                <Section section={section}/>
             </div>
         </div>
     );
+    
 }
 
 export default Services;
